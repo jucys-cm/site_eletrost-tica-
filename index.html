@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletrostática</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('mundo.jpg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #419cd8(247, 226, 246, 0.8);
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 3em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #073264;
+            font-size: 1.2em;
+        }
+
+        main {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1000px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: rgba(162, 209, 253, 0.8);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            main {
+                padding: 10px;
+            }
+
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Eletro<span style="color:#2ea1ee;">stática</span></h1>
+        <nav>
+            <ul>
+                <li><a href="capa.html" target="_blank"><i class="material-icons">info</i> Sobre</a></li>
+                <li><a href="introducao.html" target="_blank"><i class="material-icons">science</i> Introdução à elétrica</a></li>
+                <li><a href="ondeesta.php" target="_blank"><i class="material-icons">build</i> Onde está presente</a></li>
+                <li><a href="eletro.html" target="_blank"><i class="material-icons">build</i> Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="intro">
+            <h2>O que é Eletrostática?</h2>
+            <p>A eletrostática é o estudo das cargas elétricas em repouso. Ela é fundamental para compreender fenômenos como eletricidade estática e as interações entre partículas carregadas.</p>
+            <img src="pessoas.jpg" alt="Eletrostática em Ação" class="intro-image">
+        </section>
+        
+        <section class="principios">
+            <h1><center>Princípios da Eletrostática</center></h1>
+            <div class="card-container">
+                <div class="card">
+                    <h4>Lei de Coulomb</h4>
+                    <p>Descreve a força entre duas cargas elétricas. A força é diretamente proporcional ao produto das cargas e inversamente proporcional ao quadrado da distância entre elas.</p>
+                </div>
+                <div class="card">
+                    <h4>Campo Elétrico</h4>
+                    <p>Região ao redor de uma carga onde outras cargas sentem uma força. É representado por linhas de campo que indicam a direção da força.</p>
+                </div>
+                <div class="card">
+                    <h4>Potencial Elétrico</h4>
+                    <p>Trabalho necessário para mover uma carga em um campo elétrico. É medido em volts e indica a energia potencial elétrica por unidade de carga.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="aplicacoes">
+            <h3>Aplicações da Eletrostática</h3>
+            <p>A eletrostática tem diversas aplicações práticas, como em impressoras a jato de tinta, filtros de ar e até mesmo na medicina, como em equipamentos de diagnóstico. Compreender os princípios da eletrostática é essencial para várias inovações tecnológicas.</p>
+            <div class="flash-card-container">
+                <div class="flash-card" data-title="Impressoras a Jato de Tinta">
+                    <p>A eletrostática é utilizada para atrair as gotas de tinta, permitindo a impressão precisa em papel.</p>
+                </div>
+                <div class="flash-card" data-title="Filtros de Ar">
+                    <p>Os filtros eletrostáticos removem partículas do ar usando cargas elétricas para atraí-las.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="experimentos">
+            <h3>Experimentos Interativos</h3>
+            <p>Descubra como a eletrostática funciona através de experimentos simples que podem ser realizados em casa ou na escola. Por exemplo, o experimento do balão que atrai papel picado demonstra a atração entre cargas opostas.</p>
+            <div class="flash-card-container">
+                <div class="flash-card" data-title="Experimento do Balão">
+                    <p>Encha um balão e esfregue-o contra o cabelo. Veja como ele atrai pedaços de papel picado!</p>
+                </div>
+                <div class="flash-card" data-title="Experimento do Pó de Café">
+                    <p>Use um balão carregado para ver como ele pode mover grãos de pó de café leve.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="imagens">
+            <h3>Visualize os Conceitos</h3>
+            <div class="flash-card-container">
+                <div class="flash-card" data-title="Cargas Elétricas">
+                    <p>As cargas elétricas podem ser positivas ou negativas, e interagem umas com as outras através de forças elétricas.</p>
+                </div>
+                <div class="flash-card" data-title="Campo Elétrico">
+                    <p>O campo elétrico é a região ao redor de uma carga onde outras cargas sentirão uma força.</p>
+                </div>
+                <div class="flash-card" data-title="Força Elétrica">
+                    <p>A força elétrica é a interação entre cargas, sendo responsável por fenômenos como eletricidade estática.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="interativo">
+            <h3>Descubra Mais!</h3>
+            <button id="infoButton">Clique aqui para saber mais</button>
+            <div id="infoMessage" class="hidden">
+                <p>A eletrostática é fundamental em diversas áreas da ciência e tecnologia, incluindo eletrônicos, medicina e energia.</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Eletrostática</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

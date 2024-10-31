@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz de Eletrostática</title>
+
+  <!-- Fonte do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Estilos CSS para o layout do quiz -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #b3e3f1 0%, #ACB6E5 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    header {
+      background-color: #80c3f3;
+      padding: 10px;
+      text-align: center;
+      color: white;
+      width: 100%;
+    }
+
+    .quiz-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #333;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .question {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .answers {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .answers li {
+      margin: 5px 0;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #169af8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0d5b92;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .result {
+      font-size: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      background-color: #e0e0e0;
+      height: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    #progress {
+      height: 100%;
+      background-color: #ff7b54;
+      width: 0%;
+      border-radius: 5px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <h2>Bem-vindo ao Quiz de Eletrostática!</h2>
+  </header>
+
+  <!-- Contêiner principal do quiz -->
+  <div class="quiz-container">
+    <h1>Quiz de Eletrostática</h1>
+
+    <!-- Barra de progresso -->
+    <div class="progress-bar">
+      <div id="progress"></div>
+    </div>
+
+    <!-- Seção onde o quiz será exibido -->
+    <div id="quiz">
+      <!-- Div para exibir a pergunta -->
+      <div class="question" id="question"></div>
+      
+      <!-- Lista com as opções de resposta -->
+      <ul class="answers">
+        <li><input type="radio" name="answer" id="a" class="answer"><label for="a" id="a_text"></label></li>
+        <li><input type="radio" name="answer" id="b" class="answer"><label for="b" id="b_text"></label></li>
+        <li><input type="radio" name="answer" id="c" class="answer"><label for="c" id="c_text"></label></li>
+        <li><input type="radio" name="answer" id="d" class="answer"><label for="d" id="d_text"></label></li>
+      </ul>
+
+      <!-- Botão para enviar a resposta -->
+      <button id="submit">Enviar Resposta</button>
+
+      <!-- Div para exibir o resultado final após completar o quiz -->
+      <div class="result" id="result"></div>
+    </div>
+  </div>
+
+
+  <!-- Script JavaScript que controla a lógica do quiz -->
+  <script>
+    // Array com os dados do quiz: perguntas, opções e resposta correta
+    const quizData = [
+      { question: "O que é uma carga elétrica?", a: "Uma partícula neutra", b: "Uma propriedade das partículas que provoca força", c: "Um campo magnético", d: "Uma forma de energia", correct: "b" },
+      { question: "Qual a unidade de medida de carga elétrica?", a: "Newton", b: "Ohm", c: "Coulomb", d: "Farad", correct: "c" },
+      { question: "Qual das seguintes partículas tem carga negativa?", a: "Próton", b: "Nêutron", c: "Elétron", d: "Positron", correct: "c" },
+      { question: "Qual é a relação entre a força eletrostática e a distância entre duas cargas?", a: "A força aumenta com o aumento da distância", b: "A força diminui com o aumento da distância", c: "A força não depende da distância", d: "A força se torna nula a qualquer distância", correct: "b" },
+      { question: "Como se chama o processo de eletrizar um objeto ao aproximá-lo de outro carregado, sem contato?", a: "Eletrização por atrito", b: "Eletrização por contato", c: "Eletrização por indução", d: "Eletrização por condução", correct: "c" },
+      { question: "Como se chama o processo de transferência de carga de um corpo para a Terra?", a: "Polarização", b: "Aterramento", c: "Eletrização por indução", d: "Eletrização por atrito", correct: "b" }
+    ];
+
+    // Seleciona os elementos do DOM que serão manipulados
+    const quiz = document.getElementById('quiz');
+    const questionEl = document.getElementById('question');
+    const answersEls = document.querySelectorAll('.answer');
+    const a_text = document.getElementById('a_text');
+    const b_text = document.getElementById('b_text');
+    const c_text = document.getElementById('c_text');
+    const d_text = document.getElementById('d_text');
+    const submitBtn = document.getElementById('submit');
+    const resultEl = document.getElementById('result');
+    const progressBar = document.getElementById('progress');
+
+    let currentQuiz = 0; // Índice da pergunta atual
+    let score = 0; // Contador de pontuação
+
+    // Função que carrega a pergunta atual e suas respostas
+    function loadQuiz() {
+      deselectAnswers(); // Desmarca as opções previamente selecionadas
+      const currentQuizData = quizData[currentQuiz]; // Obtém os dados da pergunta atual
+      questionEl.innerText = currentQuizData.question; // Exibe a pergunta
+      a_text.innerText = currentQuizData.a; // Exibe a opção A
+      b_text.innerText = currentQuizData.b; // Exibe a opção B
+      c_text.innerText = currentQuizData.c; // Exibe a opção C
+      d_text.innerText = currentQuizData.d; // Exibe a opção D
+
+      // Atualiza a barra de progresso
+      updateProgress();
+    }
+
+    // Função que desmarca todas as opções de resposta
+    function deselectAnswers() {
+      answersEls.forEach(answerEl => answerEl.checked = false);
+    }
+
+    // Função que obtém a resposta selecionada pelo usuário
+    function getSelected() {
+      let answer;
+      answersEls.forEach(answerEl => {
+        if(answerEl.checked) {
+          answer = answerEl.id; // Obtém o ID da opção selecionada
+        }
+      });
+      return answer; // Retorna a resposta selecionada
+    }
+
+    // Função que atualiza a barra de progresso
+    function updateProgress() {
+      const progress = ((currentQuiz + 1) / quizData.length) * 100;
+      progressBar.style.width = progress + '%';
+    }
+
+    // Evento de clique no botão "Enviar Resposta"
+    submitBtn.addEventListener('click', () => {
+      const answer = getSelected(); // Obtém a resposta selecionada
+      if(answer) { // Se houver uma resposta selecionada
+        if(answer === quizData[currentQuiz].correct) { // Verifica se está correta
+          score++; // Incrementa a pontuação se a resposta estiver correta
+        }
+
+        currentQuiz++; // Passa para a próxima pergunta
+
+        if(currentQuiz < quizData.length) { // Se ainda houver perguntas, carrega a próxima
+          loadQuiz();
+        } else {
+          // Se não houver mais perguntas, exibe o resultado final e a pontuação
+          quiz.innerHTML = `<h2>Você acertou ${score} de ${quizData.length} perguntas!</h2>
+                            <button onclick="location.reload()">Reiniciar Quiz</button>`;
+        }
+      }
+    });
+
+    // Carrega a primeira pergunta assim que a página é carregada
+    loadQuiz();
+  </script>
+
+</body>
+</html>

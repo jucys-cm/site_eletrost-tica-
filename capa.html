@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletrostática</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #e9f5fb, #f0f0f0);
+            color: #333;
+            margin: 0;
+            padding-top: 60px; /* Para ajustar ao menu fixo */
+            overflow-x: hidden;
+            transition: background 0.5s ease;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            color: #4a90e2;
+            margin: 20px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Menu de navegação fixo */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 122, 204, 0.9);
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+        }
+
+        nav button {
+            background-color: #2ea1ee;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav button:hover {
+            background-color: #2ea1ee;
+            transform: scale(1.05);
+        }
+
+        /* Estilos do mural */
+        .mural {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 100px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 200px;
+            transition: transform 0.3s ease;
+        }
+
+        .mural:hover {
+            transform: scale(1.02);
+        }
+
+        .texto {
+            font-size: 20px;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 20px;
+            transition: color 0.3s;
+        }
+
+        .seta {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .seta:hover {
+            background-color: #ff1c6d;
+            transform: scale(1.1);
+        }
+
+        /* Imagem informativa */
+        .imagem-info {
+            text-align: center;
+            margin: 20px auto;
+            opacity: 0; /* Começa invisível */
+            transform: translateY(-20px); /* Começa um pouco acima */
+            transition: opacity 0.5s, transform 0.5s; /* Transição suave */
+            position: relative; /* Permite o controle do z-index */
+            z-index: 1; /* Certifica-se de que a imagem aparece acima de outros elementos */
+        }
+
+        .imagem-info.show {
+            opacity: 1; /* Torna visível */
+            transform: translateY(0); /* Move para a posição original */
+        }
+
+        /* Adicionando tamanho à imagem */
+        .imagem-info img {
+            width: 200px; /* Define a largura da imagem */
+            height: auto; /* Mantém a proporção da altura */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo de rodapé */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #007acc;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilo do modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .close-modal {
+            background: #ff4081;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .close-modal:hover {
+            background: #ff1c6d;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .mural {
+                flex-direction: column;
+                height: auto;
+            }
+            .seta {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu fixo -->
+    <header>
+        <nav>
+            <button onclick="document.location='index.html'">Página Inicial</button>
+        </nav>
+    </header>
+
+    <!-- Título da página -->
+    <h1>Eletrostática</h1>
+
+    <!-- Imagem informativa -->
+    <div class="imagem-info" id="imagem-info" onclick="abrirModal()">
+        <img src="mundo.jpg.jpg" alt="Imagem sobre Eletrostática">
+    </div>
+
+    <!-- Mural de texto interativo -->
+    <div class="mural">
+        <button class="seta" id="volta">◀</button>
+        <div class="texto" id="texto">Texto 1</div>
+        <button class="seta" id="avanca">▶</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2>Se atente!</h2>
+            <p>A eletrostática é a parte da física que estuda as cargas elétricas em repouso.</p>
+            <button class="close-modal" onclick="fecharModal()">Fechar</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Eletrostática. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        const textos = [
+            "A eletricidade, como é vista hoje no mundo moderno, percorreu um longo caminho através dos séculos para ser dominada pelo homem. Graças à curiosidade humana, a eletricidade é responsável por inserir o homem no mundo moderno, com facilidades jamais pensadas em tempos remotos.",
+            "A eletrostática é amplamente aplicada em fenômenos simples, como a poeira que é atraída para as telas de televisão, até dispositivos eletrônicos, como capacitores que armazenam energia elétrica."
+        ];
+
+        let posicaoTexto = 0;
+
+        const texto = document.getElementById('texto');
+        const voltaButton = document.getElementById('volta');
+        const avancaButton = document.getElementById('avanca');
+        const imagemInfo = document.getElementById('imagem-info');
+        const modal = document.getElementById('modal');
+
+        function atualizaMural() {
+            texto.textContent = textos[posicaoTexto];
+            // Anima a imagem
+            imagemInfo.classList.remove('show');
+            setTimeout(() => {
+                imagemInfo.classList.add('show');
+            }, 100); // Atraso para permitir que a animação de saída ocorra
+        }
+
+        voltaButton.addEventListener('click', () => {
+            posicaoTexto = (posicaoTexto > 0) ? posicaoTexto - 1 : textos.length - 1;
+            atualizaMural();
+        });
+
+        avancaButton.addEventListener('click', () => {
+            posicaoTexto = (posicaoTexto < textos.length - 1) ? posicaoTexto + 1 : 0;
+            atualizaMural();
+        });
+
+        // Inicializa o mural com o primeiro texto
+        atualizaMural();
+
+        // Funções do modal
+        function abrirModal() {
+            modal.style.display = 'flex'; // Exibe o modal
+        }
+
+        function fecharModal() {
+            modal.style.display = 'none'; // Esconde o modal
+        }
+    </script>
+
+</body>
+</html>

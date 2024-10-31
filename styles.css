@@ -1,0 +1,295 @@
+/* Estilos gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('.jpg.jpg') no-repeat center center fixed; /* Imagem de fundo suave */
+    background-size: cover; /* Faz com que a imagem cubra toda a tela */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f0f0; /* Cor de fundo padrão */
+}
+
+/* Cabeçalho */
+header {
+    background-color: rgba(0, 122, 204, 0.9); /* Fundo semi-transparente */
+    color: rgb(105, 173, 250);
+    padding: 40px 20px; /* Aumenta o padding para dar mais espaço */
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Título inovador no cabeçalho */
+header h1 {
+    font-family: 'Lobster', cursive; /* Usando uma fonte cursiva estilosa */
+    font-size: 5em; /* Aumentando o tamanho do texto */
+    color: #6eb6f5;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Sombra para destaque */
+    margin: 0;
+}
+
+/* Navegação */
+nav {
+    background: linear-gradient(135deg, #53bedf, #53bedf); /* Gradiente colorido */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite quebra de linha */
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+nav ul li a {
+    display: inline-block;
+    background-color: transparent; /* Fundo transparente para efeito */
+    color: rgb(229, 233, 240);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    position: relative;
+    font-size: 1.1em;
+}
+
+/* Efeito de fundo ao passar o mouse */
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Efeito de destaque ao passar o mouse */
+    transform: scale(1.05); /* Levanta o botão ao passar o mouse */
+}
+
+/* Introdução */
+.intro {
+    margin: 20px;
+    text-align: center;
+    background: rgba(224, 238, 248, 0.8); /* Fundo levemente branco */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.intro h2 {
+    color: #007acc;
+}
+
+.intro-image {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Cartões (cards) */
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #007acc;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagens */
+.imagens {
+    margin: 20px;
+    text-align: center;
+}
+
+.image-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.imagens img {
+    width: 30%;
+    margin: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.imagens img:hover {
+    transform: scale(1.05);
+    filter: brightness(90%);
+}
+
+/* Botões interativos */
+.interativo {
+    text-align: center;
+    margin: 30px;
+}
+
+button {
+    background-color: #007acc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #005f99;
+    transform: scale(1.05);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #007acc;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Tela cheia (full-screen) para a imagem */
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullscreen img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* Estilos para mensagens ocultas */
+.hidden {
+    display: none;
+}
+
+/* Estilos adicionais para seções específicas */
+h3 {
+    color: #4a4a4a;
+}
+
+/* Aplicações e Experimentos com títulos em letra cursiva e centralizados */
+.principios h2, .principios h3,
+.aplicacoes h2, .aplicacoes h3,
+.experimentos h2, .experimentos h3 {
+    font-family: 'Lobster', cursive; /* Letras cursivas */
+    text-align: center; /* Centraliza o texto */
+    font-size: 2.5em; /* Aumenta o tamanho da fonte */
+    color: #007acc; /* Cor do texto */
+    background-color: rgba(209, 210, 211, 0.6); /* Fundo levemente colorido */
+    padding: 15px; /* Espaço interno */
+    border-radius: 8px; /* Arredonda os cantos */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+}
+
+/* Flash Cards */
+.flash-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Espaço entre os cartões */
+}
+
+.flash-card {
+    flex: 1 1 200px; /* Permite que os cartões cresçam e se encolham */
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-left: 4px solid #007bff; /* Cor da borda esquerda */
+    cursor: pointer;
+}
+
+.flash-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.flash-card p {
+    margin: 0;
+    color: #333;
+}
+
+.flash-card::before {
+    content: attr(data-title);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #007bff; /* Cor do título */
+}
+
+
+
+
+
+/* Estilos para Flash Cards */
+.flash-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Espaço entre os cartões */
+    justify-content: center; /* Centraliza os cartões */
+}
+
+.flash-card {
+    flex: 1 1 200px; /* Permite que os cartões cresçam e se encolham */
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.flash-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-weight: bold;
+    color: #007bff; /* Cor do título */
+    font-size: 1.1em; /* Tamanho do título */
+}
+
+/* Conteúdo do cartão */
+.card-content {
+    display: none; /* Oculta o conteúdo por padrão */
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Exibe o conteúdo ao passar o mouse */
+.flash-card:hover .card-content {
+    display: block; /* Mostra o conteúdo */
+}
+
+
+

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carga Elétrica</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: 'Helvetica', Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            background-color: #eaf3f7; /* Azul claro */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Cabeçalho visualmente atraente */
+        .header {
+            background: linear-gradient(45deg, #0b5f97, #97d0f7);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .header .cta-button {
+            background-color: #2ea1ee; /* Rosa vibrante */
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+        }
+
+        .header .cta-button:hover {
+            background-color: #2ea1ee; /* Azul forte */
+            transform: scale(1.05);
+        }
+
+        /* Estilo das seções de conteúdo */
+        .divgrande, .divprincipal {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .div1, .divinterior {
+            flex: 1;
+            margin: 10px;
+            background-color: #80c3f3; 
+            color: rgba;
+            padding: 20px;
+            text-align: justify;
+            min-width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos dos títulos */
+        h2 {
+    font-family: 'Dancing Script', cursive; /* Fonte cursiva elegante */
+    font-size: 1.8rem; /* Tamanho menor */
+    font-weight: 400; /* Peso mais leve */
+    text-align: center;
+    color: #0b71b9; 
+    letter-spacing: 1px; /* Espaçamento suave entre letras */
+    text-transform: none; /* Manter o texto normal, sem maiúsculas */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); /* Sombra suave */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+
+
+        /* Botões */
+        .botao {
+            background-color: #0a93f5; /* Azul escuro */
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 10px;
+        }
+
+        .botao:hover {
+            background-color: #ff1c6d; /* Rosa vibrante */
+            transform: scale(1.05);
+        }
+
+        .botao:active {
+            transform: scale(0.95);
+        }
+
+        /* Estilo da imagem */
+        #imagem {
+            width: 300px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        /* Container do botão de voltar */
+        .container-voltar {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .div1, .divinterior {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Cabeçalho visualmente atraente -->
+    <div class="header">
+        <h1>Entenda a Carga Elétrica</h1>
+        <p>Explore o mundo da eletrostática e aprenda sobre as forças que movem o universo.</p>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <h2>Carga Elétrica</h2>
+
+    <div class="divgrande">
+        <div class="div1">
+            A carga elétrica é um conceito físico que determina as interações eletromagnéticas dos corpos eletrizados.
+            Sendo assim, a partir do atrito entre os corpos, ocorre o fenômeno chamado eletrização, de modo que todos
+            os corpos possuem a propriedade de se atraírem ou se repelirem.
+        </div>
+        <div class="div1">
+            Dessa forma, cargas de mesma natureza (positivo e positivo, negativo e negativo) se repelem, enquanto que
+            as cargas de sinais contrários (positivas e negativas) se atraem. Isso ocorre porque as cargas elétricas
+            são formadas por partículas elementares que constituem os átomos, conhecidas como prótons (carga positiva),
+            elétrons (carga negativa) e nêutrons (carga neutra).
+        </div>
+    </div>
+
+    <h2>Interaja</h2>
+
+    <div class="divprincipal">
+        <div class="divinterior">
+            <h4>Carga 1</h4>
+            <form id="formulario">
+                <label>
+                    <input type="radio" name="valor1" value="positivo" onclick="atualizarImagem()">
+                    Positiva
+                </label><br>
+                <label>
+                    <input type="radio" name="valor1" value="negativo" onclick="atualizarImagem()">
+                    Negativa
+                </label><br>
+            </form>
+        </div>
+
+        <div class="divinterior">
+            <h4>Carga 2</h4>
+            <form id="formulario2">
+                <label>
+                    <input type="radio" name="valor2" value="positivo" onclick="atualizarImagem()">
+                    Positiva
+                </label><br>
+                <label>
+                    <input type="radio" name="valor2" value="negativo" onclick="atualizarImagem()">
+                    Negativa
+                </label><br>
+            </form>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <button type="button" onclick="novovalor()" class="botao">Restaurar</button>
+    </div>
+
+    <div class="container-voltar">
+        <button type="button" onclick="document.location='index.html'" class="botao">Voltar para a Página Inicial</button>
+    </div>
+
+    <div style="text-align: center;">
+        <img id="imagem" src="cargasjpg.jpg" alt="Representação de cargas elétricas">
+    </div>
+
+    <!-- Script para atualizar a imagem -->
+    <script>
+        function atualizarImagem() {
+            const valorSelecionado = document.querySelector('input[name="valor1"]:checked')?.value;
+            const valorSelecionado2 = document.querySelector('input[name="valor2"]:checked')?.value;
+            const img = document.getElementById('imagem');
+
+            if (valorSelecionado === valorSelecionado2) {
+                img.src = 'afastando.gif'; // Substitua pelo caminho da imagem de afastamento
+            } else {
+                img.src = 'aproximando.gif'; // Substitua pelo caminho da imagem de aproximação
+            }
+        }
+
+        function novovalor() {
+            const img = document.getElementById('imagem');
+            img.src = 'cargasjpg.jpg'; // Restaura a imagem original
+            const radios = document.querySelectorAll('input[type="radio"]');
+            radios.forEach(radio => radio.checked = false); // Desmarca os rádios
+        }
+    </script>
+
+</body>
+</html>

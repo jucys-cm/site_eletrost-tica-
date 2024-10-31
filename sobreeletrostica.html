@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletrostática</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
+            color: #004d40;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+        h1 {
+            color: #00796b;
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .image-container {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .image-box {
+            width: 200px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .image-box:hover img {
+            transform: translateY(-20px);
+        }
+        a {
+            display: inline-block;
+            background-color: #00796b;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        a:hover {
+            background-color: #004d40;
+            transform: scale(1.05);
+        }
+        .content {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .icon {
+            font-size: 50px;
+            color: #00796b;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .icon:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sobre!</h1>
+    <p>Explore o mundo das cargas elétricas e suas interações.</p>
+
+    <div class="image-container">
+        <div class="image-box">
+            <img src="https:" alt="Carga Positiva">
+        </div>
+        <div class="image-box">
+            <img src="https:b" alt="Carga Negativa">
+        </div>
+    </div>
+
+
+
+    <div class="content">
+        <h2>Conteúdo</h2>
+        <p>Aqui você pode adicionar mais informações sobre eletrostática, como:</p>
+            <li><i class="fas fa-bolt icon"></i> Definição de carga elétrica</li>
+            <li><i class="fas fa-balance-scale icon"></i> Leis de Coulomb</li>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.image-box img');
+        let current = 0;
+
+        setInterval(() => {
+            images[current].style.transform = 'translateY(20px)';
+            current = (current + 1) % images.length;
+            images[current].style.transform = 'translateY(0)';
+        }, 2000);
+    </script>
+
+</body>
+</html>
